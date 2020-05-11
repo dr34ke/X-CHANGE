@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using app.ViewModels;
+using app.Views;
+using app.Models;
 namespace app
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -18,9 +20,10 @@ namespace app
             InitializeComponent();
             BindingContext = new MainVM();
         }
-        public void Detail()
+        public void Detail(Object sender, EventArgs e)
         {
-
+            detailResponse a = new detailResponse("usd");
+            //new DetailPage(e.);
         }
     }
 }

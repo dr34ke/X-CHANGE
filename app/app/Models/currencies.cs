@@ -42,12 +42,76 @@ namespace app.Models
     }
     public class Rates
     {
-        public string currency { get; set; }
+        private string _cur {get;set;} 
+        public string currency
+        {
+            get => _cur; 
+            set
+            {
+                string[] a =value.Split(' ');
+                char[] b;
+                foreach (string _a in a)
+                {
+                    b = _a.ToCharArray();
+                    b[0]=char.Parse(b[0].ToString().ToUpper());
+                    foreach(char p in b)
+                    {
+                        _cur += p.ToString();
+                    }
+                    _cur += " ";
+                }
+                _cur = _cur.Trim(' ');
+            }
+        }
         public string code { get; set; }
         public float bid { get; set; }
         public float ask { get; set; }
-
-
+    }
+    public class detailResponse
+    {
+        public string table { get; set; }
+        private string _cur {get;set;}
+        public string currency
+        {
+            get => _cur;
+            set
+            {
+                string[] a = value.Split(' ');
+                char[] b;
+                foreach (string _a in a)
+                {
+                    b = _a.ToCharArray();
+                    b[0] = char.Parse(b[0].ToString().ToUpper());
+                    foreach (char p in b)
+                    {
+                        _cur += p.ToString();
+                    }
+                    _cur += " ";
+                }
+                _cur = _cur.Trim(' ');
+            }
+        }
+        public string code { get; set; }
+        public List<detailRates> rates { get; set; }
+        public detailResponse(string code)
+        {
+            RestClient client = new RestClient("http://api.nbp.pl/api/exchangerates/rates/c/" + code + "/");
+            RestRequest request = new RestRequest();
+            request.AddParameter("format", "json");
+            var res = client.Execute(request);
+            detailResponse obj = JsonConvert.DeserializeObject<detailResponse>(res.Content);
+            this.table = obj.table;
+            this.currency = obj.currency;
+            this.code = obj.code;
+            this.rates = obj.rates;
+        }
+        public class detailRates
+        {
+            public string no { get; set; }
+            public string effectiveDate { get; set; }
+            public float ask { get; set; }
+            public float bid { get; set; }
+        }
     }
 }
 
