@@ -13,9 +13,11 @@ namespace app.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailPage : ContentPage
     {
-        public DetailPage(Rates rate)
+        public DetailPage(List<detailRates> rate)
         {
+
             InitializeComponent();
+            DetailPage = new NavigationPage(new DetailPage());
         }
     }
 }

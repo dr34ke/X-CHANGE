@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using app.ViewModels;
 using app.Views;
 using app.Models;
+using Newtonsoft.Json;
 namespace app
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -20,10 +21,11 @@ namespace app
             InitializeComponent();
             BindingContext = new MainVM();
         }
-        public void Detail(Object sender, EventArgs e)
+        public async void Detail(Object sender, ItemTappedEventArgs e)
         {
-            detailResponse a = new detailResponse("usd");
-            //new DetailPage(e.);
+            Rates a = e.Item as Rates;
+            detailResponse response = new detailResponse(a.code);
+            await Navigation.PushAsync(new DetailPage(response.rates));
         }
     }
 }
