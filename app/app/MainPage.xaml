@@ -11,6 +11,30 @@
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <ListView ItemsSource="{Binding rat}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding code}" Grid.Column="0"></Label>
+                            <Label Text="{Binding code}" Grid.Column="0"></Label>
+                            <Label Text="{Binding currency}" Grid.Column="1" Grid.ColumnSpan="3"></Label>
+                            <Label Text="{Binding ask}" Grid.Column="4"></Label>
+                            <Label Text="{Binding bid}" Grid.Column="5"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>
+

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-
+using app.ViewModels;
 namespace app
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -16,6 +16,7 @@ namespace app
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainVM();
         }
     }
 }
