@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="app.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Grid Padding="10,5,10,5" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="0" ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="X-CHANGE" FontSize="30" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Column="0"/>
+            <Image Source="menu.png" Grid.Column="1"  HorizontalOptions="End"/>
+        </Grid>
+        <ListView ItemsSource="{Binding rat}" ItemTapped="Detail">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10,2,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="0" ColumnSpacing="0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Source="circle.png" Grid.Column="0" Aspect="AspectFill" HeightRequest="40"/>
+                            <Label Text="{Binding code}" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <Label Text="{Binding currency}" Grid.Column="1" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="20"></Label>
+                            <Label Text="{Binding ask}" Grid.Column="4"  VerticalOptions="Center"  HorizontalOptions="Center" ></Label>
+                            <Label Text="{Binding bid}" Grid.Column="5" VerticalOptions="Center"  HorizontalOptions="Center" ></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
+

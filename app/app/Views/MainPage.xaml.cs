@@ -18,5 +18,9 @@ namespace app
             InitializeComponent();
             BindingContext = new MainVM();
         }
+        public void Detail()
+        {
+
+        }
     }
 }
