@@ -4,13 +4,29 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="app.Views.DetailPage">
+             Title="{Binding Text}"
+             x:Class="app.Views.DetailPage"
+             xmlns:forms1="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
+             
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <forms1:ChartView Chart="{Binding Chart}" HeightRequest="200"/>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label FontSize="30" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="0" Grid.Column="0" Text="{Binding code}"/>
+                <Label FontSize="30" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="0"  Grid.Column="2" Text="PLN"/>
+                <Label FontSize="20" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="2"  Grid.Column="0" Text="{Binding ask}"/>
+                <Label FontSize="20" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="2" Grid.Column="2" Text="{Binding bid}"/>
+                <Entry WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="1" Grid.Column="0" Text="{Binding cur}"/>
+                <Entry WidthRequest="150" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="1" Grid.Column="2" Text="{Binding pln}"/>
+            </Grid>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

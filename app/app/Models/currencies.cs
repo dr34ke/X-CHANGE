@@ -1,7 +1,4 @@
-﻿
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using RestSharp;
@@ -95,7 +92,7 @@ namespace app.Models
         public List<detailRates> rates { get; set; }
         public detailResponse(string code)
         {
-            RestClient client = new RestClient("http://api.nbp.pl/api/exchangerates/rates/c/" + code + "/");
+            RestClient client = new RestClient("http://api.nbp.pl/api/exchangerates/rates/c/" + code + "/last/15/");
             RestRequest request = new RestRequest();
             request.AddParameter("format", "json");
             var res = client.Execute(request);

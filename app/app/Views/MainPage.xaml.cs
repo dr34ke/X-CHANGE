@@ -18,14 +18,15 @@ namespace app
     {
         public MainPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             BindingContext = new MainVM();
         }
         public async void Detail(Object sender, ItemTappedEventArgs e)
         {
             Rates a = e.Item as Rates;
-            detailResponse response = new detailResponse(a.code);
-            await Navigation.PushAsync(new DetailPage(response.rates));
+            
+            await Navigation.PushAsync(new DetailPage(a));
         }
     }
 }
