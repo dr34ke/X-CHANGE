@@ -14,16 +14,22 @@ namespace app.ViewModels
     class SettingsVM : INotifyProprtyChanged
     {
         public ICommand command { get; set; }
-        ObservableCollection<KeyValuePair<string, bool>> sett;
+        public List<setting> SettingsCur { get => _SettingsCur; set
+            {
+                this._SettingsCur=value;
+                OnPropertyChanged(nameof(_SettingsCur));
+            } 
+        }
+        private List<setting> _SettingsCur { get; set; }
         public SettingsDB set { get=>_set; set
             {
                 _set = value;
-                this.sett = new ObservableCollection<KeyValuePair<string, bool>>();
+                this.SettingsCur = new List<setting>();
                 foreach(string str in value.settings.Split(';'))
                 {
                     try
                     {
-                        sett.Add(new KeyValuePair<string, bool>(str.Split('-')[0].ToUpper(), bool.Parse(str.Split('-')[1])));
+                        SettingsCur.Add(new setting() { name=str.Split('-')[0].ToUpper(), isSet=bool.Parse(str.Split('-')[1]) });
                     }
                     catch{
                        var x = 1;
@@ -48,9 +54,9 @@ namespace app.ViewModels
         public void Save()
         {
             this.set.settings = "";
-            for (var i=0; i<sett.Count; i++)
+            for (var i=0; i< SettingsCur.Count; i++)
             {
-                this.set.settings += sett[i].Key + "-" + sett.ElementAtOrDefault(i).Value.ToString() + ";";
+                this.set.settings += SettingsCur[i].name + "-" + SettingsCur.ElementAtOrDefault(i).isSet.ToString() + ";";
             }
             app.Data.SettingsController.SetSettings(this.set);
         }

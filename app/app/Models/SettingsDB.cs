@@ -13,4 +13,10 @@ namespace app.Models
         public string time { get; set; }
         public bool enablepush { get; set; }
     }
+
+    class setting
+    {
+        public string name { get; set; }
+        public bool isSet { get; set; }
+    }
 }
