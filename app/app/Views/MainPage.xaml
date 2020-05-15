@@ -8,7 +8,7 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Grid Padding="10,5,10,5" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="0" ColumnSpacing="0" >
+        <Grid Padding="10,5,10,5" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="0" ColumnSpacing="0" BackgroundColor="#eeeeee" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
@@ -16,7 +16,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Text="X-CHANGE" FontSize="30" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Grid.Column="0"/>
-            <Image Source="menu.png" Grid.Column="1"  HorizontalOptions="End"/>
+            <ImageButton Source="menu.png" Grid.Column="1"  HorizontalOptions="End" Clicked="Menu"/>
         </Grid>
         <ListView ItemsSource="{Binding rat}" ItemTapped="Detail">
             <ListView.ItemTemplate>

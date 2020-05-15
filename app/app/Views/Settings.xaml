@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="app.Views.Settings"
+             Title="Ustawienia">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding sett}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10,2,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="0" ColumnSpacing="0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Switch IsToggled="{Binding Value}" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Key}" Grid.Column="1" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="30"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Padding="10,2,10,10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="0" ColumnSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Switch IsToggled="{Binding set.enablepush}" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Text="Czy chcesz otrzymywać powiadomienia?" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalOptions="Center"  HorizontalOptions="Center" FontSize="15"></Label>
+                <Button Command="{Binding command}" Text="Zapisz" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" FontSize="20"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

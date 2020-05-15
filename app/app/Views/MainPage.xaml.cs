@@ -28,5 +28,9 @@ namespace app
             
             await Navigation.PushAsync(new DetailPage(a));
         }
+        public async void Menu(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Settings());
+        }
     }
 }

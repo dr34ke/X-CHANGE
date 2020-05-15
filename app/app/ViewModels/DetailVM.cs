@@ -98,6 +98,11 @@ namespace app.ViewModels
         {
             get => _cur; set
             {
+                if (curBool)
+                {
+                    pln = value*bid;
+                    OnProprtyChanged(nameof(pln));
+                }
                 _cur = value;
                 OnProprtyChanged(nameof(_cur));
             }
@@ -107,6 +112,11 @@ namespace app.ViewModels
         {
             get => _pln; set
             {
+                if (plnBool)
+                {
+                    cur = value/ask;
+                    OnProprtyChanged(nameof(cur));
+                }
                 _pln = value;
                 OnProprtyChanged(nameof(_pln));
             }

@@ -24,8 +24,8 @@
                 <Label FontSize="30" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="0"  Grid.Column="2" Text="PLN"/>
                 <Label FontSize="20" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="2"  Grid.Column="0" Text="{Binding ask}"/>
                 <Label FontSize="20" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="2" Grid.Column="2" Text="{Binding bid}"/>
-                <Entry WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="1" Grid.Column="0" Text="{Binding cur}"/>
-                <Entry WidthRequest="150" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="1" Grid.Column="2" Text="{Binding pln}"/>
+                <Entry WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="1" Grid.Column="0" Text="{Binding cur}" IsFocused="{Binding curBool}"/>
+                <Entry WidthRequest="150" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="1" Grid.Column="2" Text="{Binding pln}"  IsFocused="{Binding plnBool}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>
