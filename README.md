@@ -1,6 +1,6 @@
 # X-CHANGE
 
-Aplikacja w technologi __XAMARIN__ na androida umożliwiająca sprawdzanie kursów walut oraz ich przliczanie.
+Aplikacja w technologi __XAMARIN__ na androida umożliwiająca sprawdzanie kursów walut oraz ich przeliczanie.
 Wykorzystuje publiczne __API NBP__.
 
 
